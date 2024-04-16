@@ -1,0 +1,46 @@
+int ledAmarelo =10;
+int ledVerde=9;
+int ledVermelho=8;
+String opcao;
+
+void setup()
+{
+ pinMode(10,OUTPUT);
+  pinMode(9,OUTPUT);
+  pinMode(8,OUTPUT);
+  Serial.begin(120);
+  
+}
+
+void loop()
+{
+  Serial.begin(1200);
+  while(Serial.available()>= 0){ 
+  Serial.println("Aperte Letra Y para Amarelo R para Vermelho e G para Verde");
+  opcao= Serial.readString();
+
+  
+    if(opcao == "Y"||opcao == "y"){
+    digitalWrite(9,0);
+    digitalWrite(8,0);
+    digitalWrite(10,1);
+    Serial.println("Opção Y está Selecionada");
+      delay(5000);
+  }
+    else if(opcao == "G"||opcao == "g"){
+    digitalWrite(8,0);  
+    digitalWrite(9,1);
+    digitalWrite(10,0);
+    Serial.println("Opção G está Selecionada");
+  	delay(5000);
+    }
+    else if(opcao == "R"||opcao == "r"){
+    digitalWrite(10,0);
+    digitalWrite(9,0);
+    digitalWrite(8,1);
+  	Serial.println("Opção R está Selecionada");
+    delay(5000);
+    }
+  }
+  Serial.println(opcao);
+}

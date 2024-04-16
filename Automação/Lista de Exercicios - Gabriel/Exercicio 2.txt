@@ -1,0 +1,21 @@
+int ledL=9;
+void setup()
+{
+  pinMode(ledL, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  for(int i=0; i<=255;i++){
+  analogWrite(ledL,i);
+    delay(20);
+  Serial.println(i);  
+ }
+
+  for(int j=255; j>=0;j--){
+  analogWrite(ledL,j);
+    delay(20);
+  Serial.println(j);  
+  }
+}

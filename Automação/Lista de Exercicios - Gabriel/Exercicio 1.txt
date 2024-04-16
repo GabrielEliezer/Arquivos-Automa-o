@@ -1,0 +1,17 @@
+int ledL=13;
+
+void setup()
+{
+  pinMode(13, OUTPUT);
+}
+
+void loop()
+{
+  Serial.begin(9600);
+  digitalWrite(ledL, HIGH);
+  Serial.println("Led foi Ligado (  Pin 13 ~~ 1 ~~)"); // Mostra no Serial o valor 1.
+  delay(1000);
+  digitalWrite(ledL, LOW);
+  Serial.println("Led foi Desligado (  Pin 13 ~~ 0 ~~)"); // Mostra no Serial o valor 0.
+  delay(1000);
+}
