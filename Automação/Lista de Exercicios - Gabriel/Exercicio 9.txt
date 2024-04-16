@@ -1,0 +1,17 @@
+int ldr=A0;
+int auxldr;
+int ledA=8;
+void setup()
+{
+  pinMode(ledA, OUTPUT);
+  pinMode(ldr,INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+auxldr= analogRead(ldr);  
+  int y = map(auxldr, 6, 679,0,255);
+  analogWrite(ledA,(y));
+  Serial.println(y);
+}
