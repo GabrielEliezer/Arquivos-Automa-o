@@ -2,18 +2,18 @@
 // AMARELO É Lógica E
 // VERMELHA é Lógica XOR
 
-int botaoA, botaoB;
+int botaoA=7;
+int botaoB=6;
 int ledA,ledB,ledC;
 int auxba,auxbb;
 
 
+
 void setup()
 {
-  ledA= 10;
-  ledB= 9;
-  ledC=8;
-  botaoA=7;
-  botaoB=6;
+  ledA= 10; // LED VERDE
+  ledB= 9;  // LED AMARELO
+  ledC=8;   // LED VERMELHO
   
   
   pinMode(10, OUTPUT);
@@ -23,21 +23,35 @@ void setup()
   pinMode(6, INPUT);
 }
 
-void loop()
-{
+void loop(){
+auxba = digitalRead(botaoA);
+auxbb = digitalRead(botaoB);
+ledverde();
+ledverm();
+ledamar();
+}
 
-  auxba= digitalRead(botaoA);
-  auxbb= digitalRead(botaoB);
+void ledverde(){
+  if(auxba==0 && auxbb==0){
+    digitalWrite(ledA,0);
+  }
+    else{
+    digitalWrite(ledA,1);
+    }
+}
 
+
+void ledverm(){
+  if((auxba == 0 && auxbb==0) || (auxba==1 && auxbb==1)){
+  digitalWrite(ledC,0);
+  }else{
+  digitalWrite(ledC,1);
+  }
+}
+
+
+void ledamar(){
   if(auxba==1 && auxbb==1){
-  	digitalWrite(8,1);
+  digitalWrite(ledB,1);
   }
-  if(auxba==1 || auxbb==1){
-  	digitalWrite(10,1);
-      digitalWrite(8,1);
-  }
-  if(auxba==1 || auxbb==1){
-  digitalWrite(8,0);
-  }
-
 }
