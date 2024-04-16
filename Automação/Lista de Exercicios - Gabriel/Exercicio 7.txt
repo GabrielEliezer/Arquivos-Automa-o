@@ -1,0 +1,12 @@
+int analogPin =0;
+int val=0;
+int led=9;
+void setup(){
+ Serial.begin(9600); 
+pinMode(led, OUTPUT);
+}
+void loop(){
+  val = analogRead(A0);
+  Serial.println(val/4);
+  analogWrite(led,(val/4));
+}
