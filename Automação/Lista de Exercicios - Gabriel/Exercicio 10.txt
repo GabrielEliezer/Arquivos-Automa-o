@@ -1,0 +1,28 @@
+int piezo=3;
+int temperatura =A0;
+int auxtemp;
+int y;
+String valtemp;
+void setup()
+{
+  pinMode(piezo, OUTPUT);
+  pinMode(temperatura, INPUT);
+  Serial.begin(9600);
+}
+
+void loop(){
+  auxtemp= analogRead(temperatura);
+  y = map(((analogRead(A0) - 20) * 3.04), 0, 1023, -40, 125);
+  Serial.println(y);
+  delay(1000);
+  range();
+
+}
+void range(){
+  if (y<=60){ // O VALOR 60 É O LIMITE QUE ATÉ ONDE O ...
+  noTone(3);//BUZZER NAO TOCA, A PARTIR DE 60 ELE TOCA.
+  }
+  else{
+  tone(3, 262);
+  }
+}
